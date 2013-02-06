@@ -1,0 +1,91 @@
+
+
+
+
+
+.pic
+{
+    float: left;
+    margin-right: 10px;
+    height: 34px;
+    width: 34px;
+}
+
+
+div[id*='user_'] img
+{
+    height: 34px;
+}
+
+div[id*='user_']
+{
+    margin: 30px;
+}
+
+
+#users
+{
+    margin: 30px;
+}
+
+
+.error
+{
+    color: red;
+}
+
+
+a:link, a:visited
+{
+	color: rgb(50,50,50);
+	text-decoration: none;
+	background: rgba(60,30,80,0.1) ;
+}
+
+a:hover
+{
+	background: rgba(60,30,80,1);
+	color: rgb(255,253,240);
+}
+
+.status
+{
+    font-size: 20px;
+}
+
+.actions
+{
+    font-family: 'helvetica-light';
+    font-size: 10px;
+    color: rgb( 100, 100, 100 );
+}
+
+.actions a:link, .actions a:visited
+{
+	color: rgb( 100, 100, 100 );
+	text-decoration: none;
+	border-bottom: 1px dotted rgb( 50, 50, 50 );
+	background: none;
+}
+
+.actions a:hover
+{
+    border-bottom: none;
+}
+
+
+
+.active
+{
+	background-color: rgba(100,255,100,0.1);
+}
+
+.inactive
+{
+	background-color: rgba(255,130,130,0.1);
+}
+
+
+
+
+

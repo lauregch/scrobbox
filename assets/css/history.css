@@ -1,0 +1,37 @@
+
+
+
+
+.scrobble
+{
+    padding: 6px;
+    font-size: 14px;
+}
+
+
+.song
+{
+    padding-top: 10px;
+}
+
+.pic
+{
+    float: left;
+    margin-right: 10px;
+}
+
+.scrobble img
+{
+    height: 32px;
+    width: 32px;
+}
+
+a, a:visited
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+
