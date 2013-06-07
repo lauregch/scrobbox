@@ -33,6 +33,12 @@ class Auth extends Scrobbox_Controller
 	}
 
 
+	public function test()
+	{
+		 return $this->_display_all();
+	}
+
+
 	private function _check_add_user()
 	{
 		$error = "";
@@ -55,7 +61,7 @@ class Auth extends Scrobbox_Controller
 
 
 
-	private function _display_all( $error )
+	private function _display_all()
 	{
 		$data = array();
 		$users = array();
@@ -64,39 +70,39 @@ class Auth extends Scrobbox_Controller
 		foreach ( $result as $row )
 		{
 			$user = array();
+		
 			$name = $row->name;
-			//list( $user_url, $user_icon ) = get_user_info( $name );
+			$user['name'] = $name;
+		    
+		    $user['active'] = $row->active;
 
-			$user['name']		= $name;
-		    $user['active'] 	= $row->active;
-		    //$user['url']		= $user_url;
-		    //$user['icon_url']	= $user_icon;
+		    list( $user_url, $user_icon ) = get_user_info( $name );
+		    $user['url'] = $user_url;
+		    $user['pic'] = $user_icon;
 			
-		    // $last = $this->scrobbles_model->last_scrobble_by( $name );
-		    // $user['has_last'] = $last;
+		    $last = $this->scrobbles_model->last_scrobble_by( $name );
 
-		    // $user['profile_link_id'] = $name . "_link";
-		    // $user['profile_pic_id']  = $name . "_pic";
+		    if ( $last )
+		    {			    
+			    $user['last_scrobble']['song']['title'] = $last->track;
+			    $user['last_scrobble']['artist']['name'] = $last->artist;
+				
+				$user['last_scrobble']['time_ago'] = strtolower(strstr(timespan(strtotime($last->date)), ',', true)) . ' ago';
 
-		 //    if ( $last )
-		 //    {
-			//     $user["last_track"] =  $last->track;
-			//     $user["last_artist"] = $last->artist;
-			// 	$user["last_date"]  =  $last->date;
-
-			// 	list( $artist_url, $artist_icon ) = get_artist_info( $last->artist, $name );
-			// 	list( $track_url, $track_icon ) = get_track_info( $last->artist, $last->track, $name );
-			// 	$user["last_artist_url"] = $artist_url;
-			// 	$user["last_track_url"]  = $track_url;
-			// }
+				list( $artist_url, $artist_icon ) = get_artist_info( $last->artist, $name );
+				list( $track_url, $track_icon )   = get_track_info( $last->artist, $last->track, $name );
+				$user['last_scrobble']['artist']['url'] = $artist_url;
+				$user['last_scrobble']['song']['url']  = $track_url;
+			}
 
 		    $users[] = $user;
 		}
 		
 		$data['users'] = $users;
-		$data['error'] = $error;
+		// $data['error'] = $error;
+		// var_dump($data);
 		
-		$this->layout->view( 'auth/users_list', $data );
+		$this->layout->view( 'auth/users_list2', $data );
 	}
 
 
@@ -106,12 +112,17 @@ class Auth extends Scrobbox_Controller
 	}
 
 
-	public function delete( $user_name )
+	public function delete_user()
 	{
-		$this->users_model->delete( $user_name );
+		// $this->users_model->delete( $user_name );
 
-		$this->_display_all();
-		$this->redirect_to_index();
+		// $this->_display_all();
+		// $this->redirect_to_index();
+		if ( $this->input->is_ajax_request() )
+		{
+			$username = $this->input->post('user');
+			$this->users_model->delete( $username );
+		}
 	}
 
 	public function ajax_get_users()

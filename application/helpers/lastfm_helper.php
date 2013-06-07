@@ -43,8 +43,8 @@ function get_session_key( $token )
 function get_user_info( $username )
 {
 	$xml = call_api_method( 'user.getInfo', array( 'user' => $username ) );
-	$url = $xml->user->url;
-	$icon = $xml->user->image[1];
+	$url = (string)$xml->user->url;
+	$icon = (string)$xml->user->image[1];
 	return array( $url, $icon );
 }
 
@@ -54,8 +54,8 @@ function get_track_info( $artist, $track, $username )
 	$xml = call_api_method( 'track.getInfo', array(	'artist' => $artist,
 													'track' => $track,
 													'username' => $username ) );
-	$url = $xml->track->url;
-	$icon = $xml->track->album[0]->image[0];
+	$url = (string)$xml->track->url;
+	$icon = (string)$xml->track->album[0]->image[0];
 	$loved = $xml->track->userloved;
 	return array( $url, $icon, $loved );
 }
@@ -65,8 +65,8 @@ function get_artist_info( $artist, $username )
 {
 	$xml = call_api_method( 'artist.getInfo', array(	'artist' => $artist,
 														'username' => $username ) );
-	$url = $xml->artist->url;
-	$icon = $xml->artist[0]->image[0];
+	$url = (string)$xml->artist->url;
+	$icon = (string)$xml->artist[0]->image[0];
 	return array( $url, $icon );
 }
 

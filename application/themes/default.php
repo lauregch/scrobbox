@@ -7,9 +7,6 @@
 <?php foreach($css as $url): ?>
 		<link rel="stylesheet" type="text/css" media="screen" href="<?= $url ?>" />
 <?php endforeach; ?>
-<?php foreach($js as $url): ?>
-		<script type="text/javascript" src="<?= $url ?>"></script> 
-<?php endforeach; ?>
 	</head>
 
 	<body>
@@ -17,6 +14,14 @@
 			<h1>Scrobbox</h1>
 			<?php echo $output; ?>
 		</div>
+
+<!--
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="<?= site_url('assets/js/jquery.tmpl.min.js') ?>"></script>
+<?php foreach($js as $url): ?>
+		<script type="text/javascript" src="<?= $url ?>"></script> 
+<?php endforeach; ?>
+-->
 
 	</body>
 

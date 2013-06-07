@@ -1,5 +1,16 @@
 
 
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {  margin:0; padding:0; }
+table { border-collapse:collapse; border-spacing:0; }
+fieldset,img { border:0; }
+address,caption,cite,code,dfn,em,strong,th,var { font-style:normal; font-weight:normal; }
+ol,ul { list-style:none; }
+caption,th { text-align:left; }
+h1,h2,h3,h4,h5,h6 { font-size:100%; font-weight:normal; }
+q:before,q:after { content:''; }
+abbr,acronym { border:0; }
+
+
 @font-face {
     font-family: 'QuicksandBold';
     src: url('../fonts/Quicksand_Bold-webfont.eot');
@@ -13,9 +24,8 @@
 }
 
 
-#contenu
-{
-	background-color: rgba( 255, 255, 255, 0.92 );
+#contenu {
+	background-color: rgba( 255, 255, 255, 0.98 );
 	width: 800px;
 	margin: auto;
 	padding: 30px;
@@ -23,8 +33,7 @@
 }
 
 
-body
-{
+body {
 	background-image: url("../images/Beautiful Vinyl Colorful Grooves.jpg");
 	/*font-family: 'helvetica-light';*/
 
@@ -36,8 +45,7 @@ body
     color: rgb(50,50,50);
 }
 
-h1
-{
+h1 {
     font-size: 70px;
     text-align: center;
     text-rendering: optimizeLegibility;
@@ -47,13 +55,13 @@ h1
     margin-top: -85px;
 }
 
-img
-{
+/*
+img {
     -moz-box-shadow: 2px 2px 2px rgba(60,30,80,0.3);
     -webkit-box-shadow: 2px 2px 2px rgba(60,30,80,0.3);
     box-shadow: 2px 2px 2px rgba(60,30,80,0.3);
     border: 1px solid rgb(100,100,100);
-}
+}*/
 
 
 

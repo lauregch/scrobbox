@@ -118,6 +118,12 @@ class Users_model extends CI_Model
 	}
 
 
+	// public function get_all_users_with_last_scrobbles()
+	// {
+		
+	// }
+
+
 
 }
 
